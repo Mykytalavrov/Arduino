@@ -1,0 +1,75 @@
+#define Trig 10
+#define Echo 9
+
+
+const int in11 = 0;    // L298N-1 pin 1
+const int in12 = 1;    // L298N-1 pin 2
+const int in13 = 2;    // L298N-1 pin 2
+const int in14 = 3;    // L298N-1 pin 3
+
+const int in21 = 4;    // L298N-2 pin 1
+const int in22 = 5;    // L298N-2 pin 2
+const int in23 = 6;    // L298N-2 pin 2
+const int in24 = 7;    // L298N-2 pin 3
+
+void setup() 
+{  
+  pinMode(Trig, OUTPUT); // выход 
+  pinMode(Echo, INPUT); // вход 
+  
+  pinMode(in11, OUTPUT);      // выход на L298n
+  pinMode(in12, OUTPUT);      // выход на L298n
+  pinMode(in13, OUTPUT);      // выход на L298n
+  pinMode(in14, OUTPUT);      // выход на L298n
+    
+  pinMode(in21, OUTPUT);      // выход на L298n
+  pinMode(in22, OUTPUT);      // выход на L298n
+  pinMode(in23, OUTPUT);      // выход на L298n
+  pinMode(in24, OUTPUT);      // выход на L298n
+
+} 
+unsigned int impulseTime=0; 
+unsigned int distance_sm=0; 
+
+void loop() 
+{  
+  digitalWrite(Trig, HIGH); 
+  delayMicroseconds(10); // 10 микросекунд 
+  digitalWrite(Trig, LOW);
+  impulseTime=pulseIn(Echo, HIGH); // замеряем длину импульса 
+  distance_sm=impulseTime/58; // переводим в сантиметры 
+
+  if (distance_sm>25) // если расстояние более 20 сантиметров 
+  {     
+      digitalWrite(in11, LOW);
+      digitalWrite(in12, HIGH);
+
+      digitalWrite(in13, LOW);
+      digitalWrite(in14, HIGH);
+
+      digitalWrite(in21, LOW);
+      digitalWrite(in22, HIGH);
+
+      digitalWrite(in23, HIGH);
+      digitalWrite(in24, LOW);
+  }  
+  else 
+  {   
+      digitalWrite(in11, HIGH);
+      digitalWrite(in12, LOW);
+
+      digitalWrite(in13, HIGH);
+      digitalWrite(in14, LOW);
+
+      digitalWrite(in21, LOW);
+      digitalWrite(in22, HIGH);
+      
+      digitalWrite(in23, HIGH);
+      digitalWrite(in24, LOW); 
+    
+
+  }   
+
+  delay(50); 
+  
+}

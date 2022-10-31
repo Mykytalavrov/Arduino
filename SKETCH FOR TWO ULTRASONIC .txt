@@ -1,0 +1,60 @@
+#include <AFMotor.h>
+
+const int Trig = 10;
+const int Echo = 9;
+const int Trigg = 11;
+const int Echo1 = 13;
+
+
+AF_DCMotor motor2(2, MOTOR12_64KHZ); // ??????? ?????? motor ?2, ??? 64 ???
+AF_DCMotor motor3(3, MOTOR12_64KHZ); // ??????? ?????? motor ?3, ??? 64 ???
+
+void setup()
+{
+  pinMode(Trig, OUTPUT);
+  pinMode(Echo, INPUT);
+  pinMode(Trigg, OUTPUT);
+  pinMode(Echo1, INPUT);
+  Serial.begin(9600);
+}
+
+unsigned int time_us = 0;
+unsigned int distance_sm = 0;
+unsigned int time1_us = 0;
+unsigned int distance_sm1 = 0;
+
+void loop()
+{
+  digitalWrite(Trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(Trig, LOW);
+  time_us=pulseIn(Echo, HIGH);
+  distance_sm=time_us/58;
+  Serial.println(distance_sm);
+  digitalWrite(Trigg, HIGH);
+  delayMicroseconds(20);
+  digitalWrite(Trigg, LOW);
+  time1_us=pulseIn(Echo1, HIGH);
+  distance_sm1=time1_us/58;
+  Serial.println(distance_sm1);
+
+
+ if (distance_sm>=80)
+  {     
+    motor2.setSpeed(100);
+    motor3.setSpeed(100);
+    motor2.run(FORWARD);
+    motor3.run(FORWARD);
+  }  
+ else if(distance_sm1<=80 && distance_sm1>=20)
+  { motor3.setSpeed(255);
+    motor2.run(RELEASE);
+    motor3.run(FORWARD);
+  }
+  else if(distance_sm<=20)
+  {
+    motor2.run(RELEASE);
+    motor3.run(RELEASE);
+    }
+  delay(10);
+ }

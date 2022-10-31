@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO.Ports;
+
+namespace graph
+{
+    public partial class Form1 : Form
+    {
+        int tick;
+        SerialPort myPort;
+        public Form1()
+        {
+            InitializeComponent();
+
+            myPort = new SerialPort();
+            myPort.BaudRate = 9600;
+            myPort.PortName = "COM3";
+            myPort.Open();
+
+            tick = 0;
+            timer1.Interval = 500;
+            timer1.Tick += new EventHandler(timerTick);
+            timer1.Start();
+
+            chart1.Series.Add("Distance");
+
+            chart1.Series["Distance"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            chart1.Series["Distance"].BorderWidth = 3;
+            chart1.Series["Distance"].Color = Color.Red;
+        }
+
+        void timerTick(object sender, EventArgs e)
+        {
+
+            var data = myPort.ReadLine();
+            double dist = Convert.ToDouble(data);
+            chart1.Series["Distance"].Points.AddXY(tick, data); 
+
+            tick++;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+
+
+
+
+
+
+ 

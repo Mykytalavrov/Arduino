@@ -1,0 +1,45 @@
+﻿#include <AFMotor.h>
+
+#define Trig 10
+#define Echo 9
+
+AF_DCMotor motor2(2, MOTOR12_64KHZ); // создаем объект motor №2, ШИМ 64 кГц
+AF_DCMotor motor3(3, MOTOR12_64KHZ); // создаем объект motor №3, ШИМ 64 кГц
+
+void setup() 
+{  
+  Serial.begin(9600);
+  pinMode(Trig, OUTPUT); // выход 
+  pinMode(Echo, INPUT); // вход 
+} 
+unsigned int impulseTime=0; 
+unsigned int distance_sm=0; 
+
+void loop() 
+{  
+  digitalWrite(Trig, HIGH); 
+  delayMicroseconds(10); // 10 микросекунд 
+  digitalWrite(Trig, LOW);
+  impulseTime=pulseIn(Echo, HIGH); // замеряем длину импульса 
+  distance_sm=impulseTime/58; // переводим в сантиметры 
+
+  if (distance_sm>=80)
+  {     
+    motor2.setSpeed(100);
+    motor3.setSpeed(100);
+    motor2.run(FORWARD);
+    motor3.run(FORWARD);
+  }  
+  else if(distance_sm<80 && distance_sm>30)
+  {   
+    motor3.setSpeed(255);
+    motor2.run(RELEASE);
+    motor3.run(FORWARD);
+  }   
+  else
+  {
+    motor2.run(RELEASE);
+    motor3.run(RELEASE);
+  }
+  delay(10); 
+}

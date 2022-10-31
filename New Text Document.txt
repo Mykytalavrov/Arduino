@@ -1,0 +1,45 @@
+
+#include "Ultrasonic.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <SPI.h>
+#include <SD.h>
+
+
+Ultrasonic ultrasonic(10, 9);
+File tempsFile;
+
+void setup()
+{
+  Serial.begin(9600);         // start the serial port
+
+    Serial.print("Initializing SD card...");
+  if(!SD.begin(4)) {
+    Serial.println("initialization failed!");
+    return;
+  }
+  Serial.println("Initialization done.");
+  
+  tempsFile = SD.open("e:\\1.txt", FILE_WRITE);
+}
+
+void loop()
+{
+  float dist_cm = ultrasonic.Ranging(CM);   // get distance
+  Serial.println(dist_cm);      // print the distance
+
+  tempsFile = SD.open("e:\\1.txt", FILE_WRITE);
+  if (tempsFile) {
+    tempsFile.println(dist_cm);
+
+    tempsFile.close();
+  }
+  else
+  {
+   Serial.println("err"); 
+  }
+  
+  
+  delay(300);           // 
+}

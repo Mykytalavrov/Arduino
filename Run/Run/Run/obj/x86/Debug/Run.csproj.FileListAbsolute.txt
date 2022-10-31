@@ -1,0 +1,17 @@
+D:\TXT\_НАЦИОНАЛЬНЫЙ\V Course II Semester\Курсовая\Некит\Run\Run\bin\Debug\Run.exe
+D:\TXT\_НАЦИОНАЛЬНЫЙ\V Course II Semester\Курсовая\Некит\Run\Run\bin\Debug\Run.pdb
+D:\TXT\_НАЦИОНАЛЬНЫЙ\V Course II Semester\Курсовая\Некит\Run\Run\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\TXT\_НАЦИОНАЛЬНЫЙ\V Course II Semester\Курсовая\Некит\Run\Run\obj\x86\Debug\Run.Form1.resources
+D:\TXT\_НАЦИОНАЛЬНЫЙ\V Course II Semester\Курсовая\Некит\Run\Run\obj\x86\Debug\Run.Properties.Resources.resources
+D:\TXT\_НАЦИОНАЛЬНЫЙ\V Course II Semester\Курсовая\Некит\Run\Run\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\TXT\_НАЦИОНАЛЬНЫЙ\V Course II Semester\Курсовая\Некит\Run\Run\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\TXT\_НАЦИОНАЛЬНЫЙ\V Course II Semester\Курсовая\Некит\Run\Run\obj\x86\Debug\Run.exe
+D:\TXT\_НАЦИОНАЛЬНЫЙ\V Course II Semester\Курсовая\Некит\Run\Run\obj\x86\Debug\Run.pdb
+E:\Флешка\5й КУРС\2 СЕМЕСТР\КУРСАЧ1\КУРСАЧ\Run\Run\Run\obj\x86\Debug\Run.exe
+E:\Флешка\5й КУРС\2 СЕМЕСТР\КУРСАЧ1\КУРСАЧ\Run\Run\Run\obj\x86\Debug\Run.pdb
+E:\Флешка\5й КУРС\2 СЕМЕСТР\КУРСАЧ1\КУРСАЧ\Run\Run\Run\bin\Debug\Run.exe
+E:\Флешка\5й КУРС\2 СЕМЕСТР\КУРСАЧ1\КУРСАЧ\Run\Run\Run\bin\Debug\Run.pdb
+E:\Флешка\5й КУРС\2 СЕМЕСТР\КУРСАЧ1\КУРСАЧ\Run\Run\Run\obj\x86\Debug\Run.csprojResolveAssemblyReference.cache
+E:\Флешка\5й КУРС\2 СЕМЕСТР\КУРСАЧ1\КУРСАЧ\Run\Run\Run\obj\x86\Debug\Run.Form1.resources
+E:\Флешка\5й КУРС\2 СЕМЕСТР\КУРСАЧ1\КУРСАЧ\Run\Run\Run\obj\x86\Debug\Run.Properties.Resources.resources
+E:\Флешка\5й КУРС\2 СЕМЕСТР\КУРСАЧ1\КУРСАЧ\Run\Run\Run\obj\x86\Debug\Run.csproj.GenerateResource.Cache

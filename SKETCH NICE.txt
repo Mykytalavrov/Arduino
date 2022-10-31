@@ -1,0 +1,48 @@
+#include <AFMotor.h>
+
+const int Trig = 10;
+const int Echo = 9;
+const int Trigg = 11;
+const int Echo1 = 13;
+const int Triggg = 2;
+const int Echo2 = 5;
+
+void setup()
+{
+  pinMode(Trig, OUTPUT);
+  pinMode(Echo, INPUT);
+  pinMode(Trigg, OUTPUT);
+  pinMode(Echo1, INPUT);
+  pinMode(Triggg, OUTPUT);
+  pinMode(Echo2, INPUT);
+  Serial.begin(9600);
+}
+
+unsigned int time_us = 0;
+unsigned int distance_sm = 0;
+unsigned int time1_us = 0;
+unsigned int distance_sm1 = 0;
+unsigned int time2_us = 0;
+unsigned int distance_sm2 = 0;
+
+void loop()
+{
+  digitalWrite(Trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(Trig, LOW);
+  time_us=pulseIn(Echo, HIGH);
+  distance_sm=time_us/58;
+  Serial.println(distance_sm);
+  digitalWrite(Trigg, HIGH);
+  delayMicroseconds(20);
+  digitalWrite(Trigg, LOW);
+  time1_us=pulseIn(Echo1, HIGH);
+  distance_sm1=time1_us/58;
+  Serial.println(distance_sm1);
+  digitalWrite(Triggg, HIGH);
+  delayMicroseconds(30);
+  digitalWrite(Triggg, LOW);
+  time2_us=pulseIn(Echo2, HIGH);
+  distance_sm2=time2_us/58;
+  Serial.println(distance_sm2);
+}
